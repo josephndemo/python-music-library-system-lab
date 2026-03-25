@@ -4,19 +4,19 @@ class Song:
     genres = set()
     artists = set()
     genre_count = {}
-    artists_count = {}
+    artist_count = {}
 
     def __init__(self, name, artist, genre):
         self.name = name
         self.artist = artist
         self.genre = genre
 
-        # Call class methods with values
+        # Call class methods
         Song.add_song_to_count()
         Song.add_to_genres(self.genre)
         Song.add_to_artists(self.artist)
         Song.add_to_genre_count(self.genre)
-        Song.add_to_artists_count(self.artist)
+        Song.add_to_artist_count(self.artist)
 
     # Class Methods
     @classmethod
@@ -39,11 +39,11 @@ class Song:
             cls.genre_count[genre] = 1
 
     @classmethod
-    def add_to_artists_count(cls, artist):
-        if artist in cls.artists_count:
-            cls.artists_count[artist] += 1
+    def add_to_artist_count(cls, artist):
+        if artist in cls.artist_count:
+            cls.artist_count[artist] += 1
         else:
-            cls.artists_count[artist] = 1
+            cls.artist_count[artist] = 1
 
 song1 = Song("No Woman No Cry", "Bob Marley", "Reggae")
 song2 = Song("Welcome to Jamrock", "Damian Marley", "Reggae")
@@ -56,4 +56,4 @@ print(Song.count)
 print(Song.genres)
 print(Song.artists)
 print(Song.genre_count)
-print(Song.artists_count)
+print(Song.artist_count)
